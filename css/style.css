@@ -1,0 +1,211 @@
+/* ===== Tokens ===== */
+:root {
+    --bg: #0b100d;
+    --bg-panel: #101713;
+    --border: #1e2a22;
+
+    --text: #e8ede9;
+    --text-muted: #93a39a;
+
+    --accent: #5ddc8f;
+    /* verde placa, apagado */
+    --accent-warm: #c98a4e;
+    /* cobre / soldadura */
+
+    --font-display: "IBM Plex Mono", "Courier New", monospace;
+    --font-body: "Inter", -apple-system, sans-serif;
+
+    --content-width: 720px;
+}
+
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    background: rgba(11, 16, 13, 0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+}
+
+.navbar__logo {
+    font-family: var(--font-display);
+    color: var(--accent);
+}
+
+.navbar__links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar__links a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.navbar__links a:hover {
+    color: var(--text);
+}
+
+/* ===== Layout general de secciones ===== */
+section {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+}
+
+.section__title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+
+/* ===== Hero ===== */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero__eyebrow {
+    font-family: var(--font-display);
+    color: var(--accent-warm);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 2rem;
+}
+
+.hero__cta {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--font-display);
+}
+
+.hero__cta:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+/* ===== About ===== */
+.about__content p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.skills li {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+/* ===== Projects ===== */
+.projects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Las .project-card se estilan cuando armemos main.js */
+
+/* ===== Contact ===== */
+.contact__intro {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.contact__form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.contact__form input,
+.contact__form textarea {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.7rem;
+    font-family: var(--font-body);
+}
+
+.contact__form button {
+    align-self: flex-start;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    font-family: var(--font-display);
+    cursor: pointer;
+}
+
+.contact__links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+}

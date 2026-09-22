@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezequiel Nieva — Desarrollador & Técnico Electrónico</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <span class="navbar__logo">EN</span>
+        <nav class="navbar__links">
+            <a href="#hero">Inicio</a>
+            <a href="#about">Sobre mí</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="hero" class="hero">
+            <p class="hero__eyebrow">Córdoba, Argentina</p>
+            <h1 class="hero__title">Ezequiel Nieva</h1>
+            <p class="hero__subtitle">Desarrollador fullstack junior y técnico electrónico. Construyo herramientas de
+                software y reparo hardware — de la placa al deploy.</p>
+            <a href="#projects" class="hero__cta">Ver proyectos ↓</a>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section__title">Sobre mí</h2>
+            <div class="about__content">
+                <p>
+                    Estudiante avanzado de la Tecnicatura en Programación (UTN) con base en HTML, CSS,
+                    JavaScript, TypeScript, Angular, Java y SQL/MySQL. Vengo del mundo del diagnóstico
+                    y reparación de hardware a nivel de placa, y hoy combino ese oficio con desarrollo
+                    fullstack — desde interfaces hasta lógica de backend y base de datos.
+                </p>
+                <p>
+                    Manejo mis propios emprendimientos de servicio técnico (NANOBYTE, ServitecNico) y
+                    desarrollo herramientas internas para negocios reales, no solo ejercicios de práctica.
+                </p>
+            </div>
+
+            <ul class="skills">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Angular</li>
+                <li>Java</li>
+                <li>MySQL</li>
+                <li>Git</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2 class="section__title">Proyectos</h2>
+            <div id="projects-list" class="projects__list">
+                <!-- Las tarjetas de proyecto se generan acá con JS, leyendo data/proyectos.json -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 class="section__title">Contacto</h2>
+            <p class="contact__intro">¿Tenés un proyecto o necesitás un servicio técnico? Escribime.</p>
+
+            <form name="contact" method="POST" data-netlify="true" class="contact__form">
+                <input type="hidden" name="form-name" value="contact">
+                <label>
+                    Nombre
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    Email
+                    <input type="email" name="email" required>
+                </label>
+                <label>
+                    Mensaje
+                    <textarea name="message" rows="5" required></textarea>
+                </label>
+                <button type="submit">Enviar</button>
+            </form>
+
+            <div class="contact__links">
+                <a href="mailto:ezequiel.nieva1998@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/nievaezequiel" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Ezequiel Nieva © 2026</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
