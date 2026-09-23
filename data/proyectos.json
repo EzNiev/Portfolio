@@ -1,0 +1,49 @@
+[
+    {
+        "title": "Gestión de pedidos e insumos (Google Apps Script)",
+        "status": "En producción",
+        "description": "Aplicación web SPA (HTML/CSS/JS + backend en Apps Script) para gestionar pedidos de insumos y kits entre múltiples bases, usando Google Sheets como base de datos. Incluye alta de órdenes, despacho, carga de horas, movimientos de stock y generación de etiquetas QR/código de barras para impresora térmica Zebra.",
+        "tags": [
+            "JavaScript",
+            "Google Apps Script",
+            "Google Sheets",
+            "Python",
+            "Gemini API"
+        ],
+        "link": null
+    },
+    {
+        "title": "Food Store — Sistema de Gestión de Pedidos",
+        "status": "Trabajo final integrador — UTN",
+        "description": "Sistema en Java aplicando programación orientada a objetos (encapsulamiento, herencia, interfaces, excepciones, colecciones), con modelado UML previo. Desarrollado en equipo con control de versiones en GitHub.",
+        "tags": [
+            "Java",
+            "POO",
+            "UML",
+            "Git"
+        ],
+        "link": null
+    },
+    {
+        "title": "Base de datos Food Store",
+        "status": "Trabajo final integrador — UTN",
+        "description": "Diseño e implementación completa de una base de datos MySQL: DDL/DML, joins, vistas, subconsultas, índices y transacciones. Incluye control de concurrencia y una demostración práctica de inyección SQL y su mitigación.",
+        "tags": [
+            "MySQL",
+            "SQL",
+            "Seguridad"
+        ],
+        "link": null
+    },
+    {
+        "title": "Herramientas web para negocios propios",
+        "status": "NANOBYTE / Ceppi GNC & Mecánica",
+        "description": "Generador de tarjetas de pago con persistencia en localStorage y exportación a PNG (html2canvas), y generador de presupuestos con vista previa en vivo para un negocio de GNC y mecánica.",
+        "tags": [
+            "JavaScript",
+            "localStorage",
+            "html2canvas"
+        ],
+        "link": null
+    }
+]
