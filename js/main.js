@@ -1,13 +1,19 @@
 async function cargarProyectos() {
-  const respuesta = await fetch("data/proyectos.json");
-  const proyectos = await respuesta.json();
+  try {
+    const respuesta = await fetch("data/proyectos.json");
 
-  proyectos.forEach((proyecto) => {
-    const tagsList = proyecto.tags
-    .map((tag) => `<li>${tag}</li>`)
-    .join("")
+    if (!respuesta.ok) {
+      throw new Error(`Error al cargar Proyectos: ${respuesta.status}`);
+    }
 
-    document.getElementById("projects-list").innerHTML += `
+    const proyectos = await respuesta.json();
+
+    proyectos.forEach((proyecto) => {
+      const tagsList = proyecto.tags
+        .map((tag) => `<li>${tag}</li>`)
+        .join("")
+
+      document.getElementById("projects-list").innerHTML += `
       <article class="project-card">
         <h3 class="project-card__title">${proyecto.title}</h3>
         <p class="project-card__description">${proyecto.description}</p>
@@ -16,7 +22,14 @@ async function cargarProyectos() {
         </ul>
       </article>
     `;
-  });
+    });
+    console.log("Salio todo liso padre")
+  } catch (error) {
+    console.error(error);
+    console.log("Salio todo malllll")
+  }
+
+
 }
 
 cargarProyectos();
