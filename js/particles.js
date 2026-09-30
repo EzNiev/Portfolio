@@ -4,7 +4,25 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const numeroDeParticulas = 300;
+const anchoPantalla = window.innerWidth;
+
+let numeroDeParticulas;
+let distanciaMaxima;
+let radioMouse;
+
+if (anchoPantalla > 800) {
+    // Desktop: efecto completo
+    numeroDeParticulas = 300;
+    distanciaMaxima = 100;
+    radioMouse = 320;
+} else {
+    // Celular/tablet chica: muchas menos partículas y sin líneas
+    // (tampoco hay mouse real, así que el hover no aplica)
+    numeroDeParticulas = 60;
+    distanciaMaxima = 0;
+    radioMouse = 0;
+}
+
 const particulas = [];
 
 for (let i = 0; i < numeroDeParticulas; i++) {
@@ -23,9 +41,6 @@ window.addEventListener("mousemove", (evento) => {
     mouse.x = evento.clientX;
     mouse.y = evento.clientY;
 });
-
-const distanciaMaxima = 100;
-const radioMouse = 320;
 
 function actualizar() {
     particulas.forEach((particula) => {
@@ -54,7 +69,7 @@ function dibujar() {
 
             opacidad = 1 - distancia / 200;
             if (opacidad < 0.1) opacidad = 0.2;
-            if (opacidad > 0.6) opacidad = 0.9;
+            if (opacidad > 0.6) opacidad = 1;
         }
 
         ctx.fillStyle = `rgba(93, 220, 143, ${opacidad})`;
