@@ -64,6 +64,21 @@ a {
   color: var(--text);
 }
 
+/* ===== Efecto de particulas ===== */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
 /* ===== Layout general de secciones ===== */
 section {
   max-width: var(--content-width);

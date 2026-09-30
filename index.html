@@ -7,48 +7,16 @@
     <title>Ezequiel Nieva — Desarrollador & Técnico Electrónico</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- tsParticles engine -->
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@4.1.1/tsparticles.engine.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@4.1.1/tsparticles.engine.min.js"></script> -->
     <!-- Slim bundle (exposes loadSlim globally) -->
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4.1.1/tsparticles.slim.bundle.min.js"></script>
+    <!--  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4.1.1/tsparticles.slim.bundle.min.js"></script> -->
+
+
 </head>
 
 <body>
-    <div id="tsparticles"></div>
-    <script>
-        (async () => {
-            // loadSlim is available globally from the CDN bundle
-            await loadSlim(tsParticles);
-
-            await tsParticles.load({
-                id: "tsparticles",
-                options: {
-                    fullScreen: {
-                        zIndex: -1
-                    },
-                    background: { color: "transparent" },
-                    particles: {
-                        number: { value: 120 },
-                        paint: {
-                            color: { value: "#5ddc8f" },
-                        },
-                        links: { enable: true, distance: 150, color: "#5ddc8f", width: 0.5, opacity: 0.2 },
-                        move: { enable: true, speed: 1 },
-                    },
-                    interactivity: {
-                        events: {
-                            onHover: { enable: true, mode: "grab" }
-                        },
-                        modes: {
-                            grab: {
-                                distance: 200,
-                                links: { opacity: 0.8 }  // bien visible cuando el cursor está cerca
-                            }
-                        }
-                    },
-                },
-            });
-        })();
-    </script>
+    <canvas id="bg-canvas"></canvas>
+    <canvas id="particles-canvas"></canvas>
 
     </div>
     <header class="navbar">
@@ -141,6 +109,10 @@
     <footer class="footer">
         <p>Ezequiel Nieva © 2026</p>
     </footer>
+
+    <!-- Para mejorar el efecto de particulas -->
+    <script src="js/bg-particles.js"></script>
+    <script src="js/particles.js"></script>
     <!-- Script principal de JavaScript -->
     <script src="js/main.js"></script>
 </body>
