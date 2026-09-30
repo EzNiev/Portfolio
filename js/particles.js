@@ -9,18 +9,24 @@ const anchoPantalla = window.innerWidth;
 let numeroDeParticulas;
 let distanciaMaxima;
 let radioMouse;
+let radioBase;
+let opacidadMaxima;
 
 if (anchoPantalla > 800) {
     // Desktop: efecto completo
     numeroDeParticulas = 300;
     distanciaMaxima = 100;
     radioMouse = 320;
+    radioBase = 1.3;
+    opacidadMaxima = 0.6;
 } else {
     // Celular/tablet chica: muchas menos partículas y sin líneas
     // (tampoco hay mouse real, así que el hover no aplica)
     numeroDeParticulas = 60;
     distanciaMaxima = 0;
     radioMouse = 0;
+    radioBase = 0.7;
+    opacidadMaxima = 0.3;
 }
 
 const particulas = [];
@@ -31,7 +37,7 @@ for (let i = 0; i < numeroDeParticulas; i++) {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.8,
         vy: (Math.random() - 0.5) * 0.8,
-        radio: 1.3,
+        radio: radioBase,
     });
 }
 
@@ -69,7 +75,7 @@ function dibujar() {
 
             opacidad = 1 - distancia / 200;
             if (opacidad < 0.1) opacidad = 0.2;
-            if (opacidad > 0.6) opacidad = 1;
+            if (opacidad > opacidadMaxima) opacidad = opacidadMaxima;
         }
 
         ctx.fillStyle = `rgba(93, 220, 143, ${opacidad})`;

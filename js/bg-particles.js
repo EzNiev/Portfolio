@@ -8,7 +8,12 @@ const coloresFondo = ["#5ddc8f", "#5ddc8f", "#5ddc8f", "#ca6405"];
 // 75% de los puntos en verde, 25% en cobre — mismo truco que usa Ben Scott con su paleta
 
 const anchoPantallaFondo = window.innerWidth;
-const numeroDeParticulasFondo = anchoPantallaFondo > 800 ? 150 : 40;
+const esMobileFondo = anchoPantallaFondo <= 800;
+
+const numeroDeParticulasFondo = esMobileFondo ? 40 : 150;
+const radioMaximoFondo = esMobileFondo ? 0.7 : 1.5;
+const opacidadMaximaFondo = esMobileFondo ? 0.25 : 0.6;
+
 const particulasFondo = [];
 
 for (let i = 0; i < numeroDeParticulasFondo; i++) {
@@ -17,9 +22,9 @@ for (let i = 0; i < numeroDeParticulasFondo; i++) {
         y: Math.random() * canvasFondo.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        radio: Math.random() * 1.5,
+        radio: Math.random() * radioMaximoFondo,
         color: coloresFondo[Math.floor(Math.random() * coloresFondo.length)],
-        opacidad: Math.random() * 0.5 + 0.1,
+        opacidad: Math.random() * opacidadMaximaFondo + 0.1,
     });
 }
 
