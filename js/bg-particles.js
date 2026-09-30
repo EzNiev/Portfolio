@@ -4,7 +4,7 @@ const ctxFondo = canvasFondo.getContext("2d");
 canvasFondo.width = window.innerWidth;
 canvasFondo.height = window.innerHeight;
 
-const coloresFondo = ["#5ddc8f", "#5ddc8f", "#5ddc8f", "#c98a4e"];
+const coloresFondo = ["#5ddc8f", "#5ddc8f", "#5ddc8f", "#ca6405"];
 // 75% de los puntos en verde, 25% en cobre — mismo truco que usa Ben Scott con su paleta
 
 const numeroDeParticulasFondo = 150;

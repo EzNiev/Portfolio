@@ -4,15 +4,15 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const numeroDeParticulas = 500;
+const numeroDeParticulas = 300;
 const particulas = [];
 
 for (let i = 0; i < numeroDeParticulas; i++) {
     particulas.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 1,
-        vy: (Math.random() - 0.5) * 1,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
         radio: 1.3,
     });
 }
