@@ -6,10 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ezequiel Nieva — Desarrollador & Técnico Electrónico</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- tsParticles engine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@4.1.1/tsparticles.engine.min.js"></script>
+    <!-- Slim bundle (exposes loadSlim globally) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4.1.1/tsparticles.slim.bundle.min.js"></script>
 </head>
 
 <body>
+    <div id="tsparticles"></div>
+    <script>
+        (async () => {
+            // loadSlim is available globally from the CDN bundle
+            await loadSlim(tsParticles);
 
+            await tsParticles.load({
+                id: "tsparticles",
+                options: {
+                    fullScreen: {
+                        zIndex: -1
+                    },
+                    background: { color: "transparent" },
+                    particles: {
+                        number: { value: 200 },
+                        paint: {
+                            color: { value: "#5ddc8f" },
+                        },
+                        links: { enable: true, distance: 150, color: "#5ddc8f", width: 0.5, opacity: 0.2 },
+                        move: { enable: true, speed: 1 },
+                    },
+                    interactivity: {
+                        events: {
+                            onHover: { enable: true, mode: "grab" }
+                        },
+                        modes: {
+                            grab: {
+                                distance: 200,
+                                links: { opacity: 0.8 }  // bien visible cuando el cursor está cerca
+                            }
+                        }
+                    },
+                },
+            });
+        })();
+    </script>
+
+    </div>
     <header class="navbar">
         <span class="navbar__logo">EN</span>
         <nav class="navbar__links">
@@ -62,9 +103,9 @@
             <div id="projects-list" class="projects__list">
                 <!-- Las tarjetas de proyecto se generan acá con JS, leyendo data/proyectos.json -->
                 <!-- Esto es el innerHTML? -->
-            
 
-            
+
+
             </div>
         </section>
 
@@ -100,7 +141,7 @@
     <footer class="footer">
         <p>Ezequiel Nieva © 2026</p>
     </footer>
-
+    <!-- Script principal de JavaScript -->
     <script src="js/main.js"></script>
 </body>
 
