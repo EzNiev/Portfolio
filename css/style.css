@@ -194,6 +194,28 @@ section {
   color: var(--bg);
 }
 
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero__cta--cv {
+  border-color: var(--accent-warm);
+  color: var(--accent-warm);
+}
+
+.hero__cta--cv::before,
+.hero__cta--cv::after {
+  border-color: var(--accent-warm);
+}
+
+.hero__cta--cv:hover {
+  background: var(--accent-warm);
+  color: var(--bg);
+}
+
 /* ===== About ===== */
 #about {
   max-width: 1000px;
@@ -515,6 +537,39 @@ section {
 .contact__links {
   display: flex;
   gap: 1.5rem;
+}
+
+/* ===== Botón volver arriba ===== */
+.btn-arriba {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, color 0.2s ease;
+  z-index: 50;
+}
+
+.btn-arriba--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.btn-arriba:hover {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 /* ===== Footer ===== */

@@ -5,7 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ezequiel Nieva — Desarrollador & Técnico Electrónico</title>
+    <meta name="description"
+        content="Portfolio de Ezequiel Nieva: desarrollador fullstack junior y técnico electrónico. Proyectos reales en Python, JavaScript y Angular, de la placa al deploy.">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eznievdev.netlify.app/">
+    <meta property="og:title" content="Ezequiel Nieva — Desarrollador & Técnico Electrónico">
+    <meta property="og:description"
+        content="Portfolio de Ezequiel Nieva: desarrollador fullstack junior y técnico electrónico. Proyectos reales en Python, JavaScript y Angular, de la placa al deploy.">
+    <meta property="og:image" content="https://eznievdev.netlify.app/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ezequiel Nieva — Desarrollador & Técnico Electrónico">
+    <meta name="twitter:description"
+        content="Portfolio de Ezequiel Nieva: desarrollador fullstack junior y técnico electrónico.">
+    <meta name="twitter:image" content="https://eznievdev.netlify.app/assets/og-image.png">
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b100d'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='%235ddc8f' text-anchor='middle'%3EEN%3C/text%3E%3C/svg%3E">
 </head>
 
 <body>
@@ -17,8 +39,8 @@
         <nav class="navbar__links">
             <a href="#hero">Inicio</a>
             <a href="#about">Sobre mí</a>
-            <a href="#projects">Proyectos</a>
             <a href="#trayectoria">Trayectoria</a>
+            <a href="#projects">Proyectos</a>
             <a href="#contact">Contacto</a>
             <a href="https://github.com/EzNiev" target="_blank" rel="noopener" class="navbar__github"
                 aria-label="GitHub">
@@ -38,7 +60,10 @@
             <p class="hero__subtitle">Analista Técnico de Producción en <a href="https://sils.tech/" target="_blank"
                     rel="noopener">Silstech.</a> Construyo herramientas de
                 software y reparo hardware — de la placa al deploy.</p>
-            <a href="#about" class="hero__cta">Mi trabajo ↓</a>
+            <div class="hero__buttons">
+                <a href="#about" class="hero__cta">Mi trabajo ↓</a>
+                <a href="assets/CV_Ezequiel_Nieva.pdf" download class="hero__cta hero__cta--cv">Descargar CV ↓</a>
+            </div>
         </section>
 
         <section id="about" class="about">
@@ -78,13 +103,6 @@
             </ul>
         </section>
 
-        <section id="projects" class="projects">
-            <h2 class="section__title">Proyectos</h2>
-            <div id="projects-list" class="projects__list">
-                <!-- Las tarjetas de proyecto se generan acá con JS, leyendo data/proyectos.json -->
-            </div>
-        </section>
-
         <section id="trayectoria" class="trayectoria">
             <h2 class="section__title">Trayectoria</h2>
             <p class="trayectoria__legend">
@@ -97,14 +115,12 @@
                     <span class="timeline__dot timeline__dot--educacion"></span>
                     <div class="timeline__card">
                         <div class="timeline__meta">
-                            <p class="timeline__dates">Jun 2025 – Jun 2027 (en curso)</p>
+                            <p class="timeline__dates">Jun 2025 – Ago 2027 (en curso)</p>
                             <p class="timeline__role">Tecnicatura Universitaria en Programación</p>
                             <p class="timeline__org">Universidad Tecnológica Nacional (UTN) — modalidad a distancia</p>
                         </div>
-                        <p class="timeline__desc">Formación orientada al desarrollo de software con foco tanto en
-                            backend como en frontend, combinando lógica de programación, resolución de problemas reales
-                            y herramientas profesionales de desarrollo. Pensada para una salida laboral ágil en empresas
-                            de software, el sector público o privado, o de forma independiente.</p>
+                        <p class="timeline__desc">Programación II (Java, POO, UML), Bases de Datos I (SQL, MySQL,
+                            seguridad, concurrencia), Probabilidad y Estadística. Actualmente en Programación III.</p>
                     </div>
                 </div>
 
@@ -117,13 +133,7 @@
                             <p class="timeline__org">Silstech — Colonia Caroya, Córdoba</p>
                         </div>
                         <p class="timeline__desc">Configuración, testeo y reparación de equipos de seguimiento GPS, con
-                            foco en mejora continua de procesos y herramientas internas. En Silstech pude aplicar mis
-                            conocimientos y experiencias tanto en electrónica como en software.
-                            También asistí a áreas de operaciones e ingeniería en el despliegue, diseño y pruebas de
-                            nuevos productos de ADAS, GPS, tracking GPS, manejo de potencias, programación de ESP32 y
-                            Arduino.
-                            Trabajo con productos de la marca Streamax y Teltonika principalmente.
-                        </p>
+                            foco en mejora continua de procesos y herramientas internas.</p>
                     </div>
                 </div>
 
@@ -136,10 +146,7 @@
                             <p class="timeline__org">NANOBYTE — Jesús María / Colonia Caroya, Córdoba</p>
                         </div>
                         <p class="timeline__desc">Servicio técnico propio y desarrollo de herramientas digitales
-                            internas para el negocio y otros emprendimientos. Trabajé desde diagnosticando placas y
-                            reparando
-                            componentes de PC hasta diseño de un sistema de RED LAN para manejo remoto de equipos CNC.
-                        </p>
+                            internas para el negocio y otros emprendimientos.</p>
                     </div>
                 </div>
 
@@ -151,10 +158,6 @@
                             <p class="timeline__role">Seguridad Informática</p>
                             <p class="timeline__org">Hack4U</p>
                         </div>
-                        <p class="timeline__desc">Me introduje en el mundo de la ciberseguridad y el hacking ético con
-                            los cursos
-                            de la academia.
-                        </p>
                     </div>
                 </div>
 
@@ -192,16 +195,21 @@
                         <div class="timeline__meta">
                             <p class="timeline__dates">Mar 2022 – Mar 2023</p>
                             <p class="timeline__role">Formación Full-Stack</p>
-                            <p class="timeline__org">INTI - Argentina Programa</p>
+                            <p class="timeline__org">Argentina Programa</p>
                         </div>
                         <p class="timeline__desc">Primera Etapa (SeProgramar) y posterior formación como Desarrollador
-                            Web Full-Stack Junior (YoProgramo).</p>
+                            Web Full-Stack Junior.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-
+        <section id="projects" class="projects">
+            <h2 class="section__title">Proyectos</h2>
+            <div id="projects-list" class="projects__list">
+                <!-- Las tarjetas de proyecto se generan acá con JS, leyendo data/proyectos.json -->
+            </div>
+        </section>
 
         <section id="contact" class="contact">
             <h2 class="section__title">Contacto</h2>
@@ -237,8 +245,11 @@
         <p>Ezequiel Nieva © 2026</p>
     </footer>
 
+    <a href="#hero" class="btn-arriba" aria-label="Volver arriba">↑</a>
+
     <!-- Para mejorar el efecto de particulas -->
     <script src="js/navbar.js"></script>
+    <script src="js/volver-arriba.js"></script>
     <script src="js/bg-particles.js"></script>
     <script src="js/particles.js"></script>
     <!-- Script principal de JavaScript -->
