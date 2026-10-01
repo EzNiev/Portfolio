@@ -1,39 +1,34 @@
 [
     {
+        "title": "Monitor de Placas Sils",
+        "status": "En uso diario en Silstech",
+        "description": "Aplicación de escritorio en Python (GUI con CustomTkinter) que lee en tiempo real el log de puerto serie de placas de rastreo vehicular (ESP32) durante su testeo, detectando automáticamente ~14 señales esperadas (firmware, reportes al servidor, kilometraje, guiños, sensores tamper, ignición, entre otras). Guarda un historial de tiempos de cada escaneo para calcular promedios de referencia, y al finalizar genera un informe en PDF con el logo de la empresa. Empaquetado como ejecutable standalone con PyInstaller.",
+        "tags": [
+            "Python",
+            "CustomTkinter",
+            "PySerial",
+            "ReportLab",
+            "Pygame",
+            "PyInstaller"
+        ],
+        "link": "https://github.com/EzNiev/Monitor-GEN",
+        "image": "assets/proyectos/monitor-sils.png"
+    },
+    {
         "title": "Gestión de pedidos e insumos (Google Apps Script)",
         "status": "En producción",
-        "description": "Aplicación web SPA (HTML/CSS/JS + backend en Apps Script) para gestionar pedidos de insumos y kits entre múltiples bases, usando Google Sheets como base de datos. Incluye alta de órdenes, despacho, carga de horas, movimientos de stock y generación de etiquetas QR/código de barras para impresora térmica Zebra.",
+        "description": "Aplicación web SPA (HTML/CSS/JS + backend en Apps Script) para gestionar pedidos de insumos y kits entre múltiples bases, usando Google Sheets como base de datos. Incluye alta de órdenes, despacho, carga de horas, movimientos de stock y generación de etiquetas QR/código de barras para impresora térmica Zebra. Acceso restringido a cuentas corporativas de la empresa.",
         "tags": [
             "JavaScript",
+            "HTML",
+            "CSS",
             "Google Apps Script",
             "Google Sheets",
             "Python",
             "Gemini API"
         ],
-        "link": null
-    },
-    {
-        "title": "Food Store — Sistema de Gestión de Pedidos",
-        "status": "Trabajo final integrador — UTN",
-        "description": "Sistema en Java aplicando programación orientada a objetos (encapsulamiento, herencia, interfaces, excepciones, colecciones), con modelado UML previo. Desarrollado en equipo con control de versiones en GitHub.",
-        "tags": [
-            "Java",
-            "POO",
-            "UML",
-            "Git"
-        ],
-        "link": null
-    },
-    {
-        "title": "Base de datos Food Store",
-        "status": "Trabajo final integrador — UTN",
-        "description": "Diseño e implementación completa de una base de datos MySQL: DDL/DML, joins, vistas, subconsultas, índices y transacciones. Incluye control de concurrencia y una demostración práctica de inyección SQL y su mitigación.",
-        "tags": [
-            "MySQL",
-            "SQL",
-            "Seguridad"
-        ],
-        "link": null
+        "link": "https://script.google.com/a/macros/silstech.com.ar/s/AKfycbwG4LZurwazL8HcIDMHpx3zf3HTo54sLfQXK5SNAMJISNgaL9kIRJHfAyvlcxNaS3zP/exec",
+        "image": "assets/proyectos/portal_pedidos_silstech.png"
     },
     {
         "title": "Herramientas web para negocios propios",
@@ -44,6 +39,7 @@
             "localStorage",
             "html2canvas"
         ],
-        "link": null
+        "link": "data/demo_proyectos/nanobyte_pago.html",
+        "image": "assets/proyectos/generadorpagos.png"
     }
 ]

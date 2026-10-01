@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NANOBYTE — Datos de pago</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0eff5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  .editor {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e0ddf0;
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 1.5rem;
+  }
+
+  .editor h2 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .editor .sub {
+    font-size: 11px;
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+
+  .editor label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 3px;
+    margin-top: 10px;
+  }
+
+  .editor input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: #1a1a2e;
+    outline: none;
+    transition: border 0.2s;
+  }
+
+  .editor input:focus { border-color: #2D1B8E; }
+
+  .btn-preview {
+    margin-top: 1.25rem;
+    width: 100%;
+    padding: 10px;
+    background: #2D1B8E;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-preview:hover { background: #231570; }
+
+  .btn-clear {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    color: #b33;
+    border: none;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .saved-msg {
+    margin-top: 0.5rem;
+    font-size: 11px;
+    color: #2D8E4A;
+    text-align: center;
+    height: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .saved-msg.show { opacity: 1; }
+
+  .card-wrap {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(45,27,142,0.10);
+  }
+
+  .card-header {
+    background: #2D1B8E;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-icon svg { width: 20px; height: 20px; }
+
+  .brand-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  .card-tag {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .card-body { padding: 18px 20px; }
+
+  .billetera-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f0eff5;
+  }
+
+  .naranja-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #FF6600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .billetera-name { font-size: 14px; font-weight: 500; color: #1a1a2e; }
+  .billetera-sub { font-size: 11px; color: #999; }
+
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid #f5f4fb;
+  }
+
+  .data-row:last-of-type { border-bottom: none; }
+
+  .data-label {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 1px;
+  }
+
+  .data-label svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  .data-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a2e;
+    text-align: right;
+    max-width: 220px;
+  }
+
+  .data-value.mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    word-break: break-all;
+  }
+
+  .monto-row {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 2px solid #f0eff5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .monto-label {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .monto-label svg { width: 14px; height: 14px; }
+
+  .monto-value {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2D1B8E;
+  }
+
+  .card-footer {
+    background: #f7f6fc;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid #ede9f8;
+  }
+
+  .footer-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #888;
+  }
+
+  .footer-item svg { width: 13px; height: 13px; }
+
+  .btn-capture {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: #2D1B8E;
+    border: 1.5px solid #2D1B8E;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-capture:hover { background: #2D1B8E; color: #fff; }
+
+  .hint {
+    margin-top: 0.75rem;
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="editor">
+  <h2>✏️ Completá tus datos</h2>
+  <p class="sub">Se guardan solos en este navegador. La próxima vez que abras el archivo ya van a estar cargados.</p>
+
+  <label>Titular</label>
+  <input id="inp-titular" type="text" value="Ezequiel Nieva" />
+
+  <label>CUIL</label>
+  <input id="inp-cuil" type="text" placeholder="XX-XXXXXXXX-X" />
+
+  <label>CBU</label>
+  <input id="inp-cbu" type="text" placeholder="22 dígitos" />
+
+  <label>Alias</label>
+  <input id="inp-alias" type="text" placeholder="TU.ALIAS.ACA" />
+
+  <label>Monto ($)</label>
+  <input id="inp-monto" type="text" placeholder="70.000" />
+
+  <button class="btn-preview" onclick="actualizar(true)">Actualizar y guardar</button>
+  <button class="btn-clear" onclick="borrarGuardado()">Borrar datos guardados de este navegador</button>
+  <p class="saved-msg" id="saved-msg">✔ Guardado</p>
+</div>
+
+<div class="card-wrap">
+  <div class="card" id="tarjeta">
+
+    <div class="card-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2D1B8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="2"/>
+            <path d="M6 12h4M14 12h4M6 15h2M16 15h2"/>
+          </svg>
+        </div>
+        <span class="brand-name">NANOBYTE</span>
+      </div>
+      <span class="card-tag">Datos de pago</span>
+    </div>
+
+    <div class="card-body">
+
+      <div class="billetera-row">
+        <div class="naranja-dot">N</div>
+        <div>
+          <div class="billetera-name">Naranja X</div>
+          <div class="billetera-sub">Billetera virtual</div>
+        </div>
+      </div>
+
+      <div class="data-row">
+        <span class="data-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Titular
+        </span>
+        <span class="data-value" id="out-titular">Ezequiel Nieva</span>
+      </div>
+
+      <div class="data-row">
+        <span class="data-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg>
+          CUIL
+        </span>
+        <span class="data-value" id="out-cuil">—</span>
+      </div>
+
+      <div class="data-row">
+        <span class="data-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 11h18M3 15h10"/></svg>
+          CBU
+        </span>
+        <span class="data-value mono" id="out-cbu">—</span>
+      </div>
+
+      <div class="data-row">
+        <span class="data-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+          Alias
+        </span>
+        <span class="data-value" id="out-alias">—</span>
+      </div>
+
+      <div class="monto-row">
+        <span class="monto-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Monto a transferir
+        </span>
+        <span class="monto-value" id="out-monto">$ —</span>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <span class="footer-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.8 19.8 0 01.44 2.18 2 2 0 012.42 0h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+        +3525 509291
+      </span>
+      <span class="footer-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        @nanobytejm
+      </span>
+    </div>
+
+  </div>
+
+  <button class="btn-capture" onclick="capturar()">📸 Guardar como imagen</button>
+  <p class="hint">Guardá la imagen y mandala por WhatsApp</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  const STORAGE_KEY = 'nanobyte_pago_datos';
+
+  function v(id) { return document.getElementById(id); }
+
+  function actualizar(guardar) {
+    const titular = v('inp-titular').value.trim() || '—';
+    const cuil    = v('inp-cuil').value.trim()    || '—';
+    const cbu     = v('inp-cbu').value.trim()     || '—';
+    const alias   = v('inp-alias').value.trim()   || '—';
+    const monto   = v('inp-monto').value.trim();
+
+    v('out-titular').textContent = titular;
+    v('out-cuil').textContent    = cuil;
+    v('out-cbu').textContent     = cbu;
+    v('out-alias').textContent   = alias;
+    v('out-monto').textContent   = monto ? '$ ' + monto : '$ —';
+
+    if (guardar) {
+      guardarDatos();
+      mostrarGuardado();
+    }
+  }
+
+  function guardarDatos() {
+    const datos = {
+      titular: v('inp-titular').value,
+      cuil:    v('inp-cuil').value,
+      cbu:     v('inp-cbu').value,
+      alias:   v('inp-alias').value
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(datos));
+    } catch (e) {
+      console.error('No se pudo guardar:', e);
+    }
+  }
+
+  function cargarDatos() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const datos = JSON.parse(raw);
+      if (datos.titular) v('inp-titular').value = datos.titular;
+      if (datos.cuil)    v('inp-cuil').value    = datos.cuil;
+      if (datos.cbu)     v('inp-cbu').value     = datos.cbu;
+      if (datos.alias)   v('inp-alias').value   = datos.alias;
+    } catch (e) {
+      console.error('No se pudo cargar:', e);
+    }
+  }
+
+  function borrarGuardado() {
+    if (!confirm('¿Borrar los datos guardados en este navegador?')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    v('inp-cuil').value  = '';
+    v('inp-cbu').value   = '';
+    v('inp-alias').value = '';
+    actualizar(false);
+  }
+
+  let msgTimeout;
+  function mostrarGuardado() {
+    const msg = v('saved-msg');
+    msg.classList.add('show');
+    clearTimeout(msgTimeout);
+    msgTimeout = setTimeout(() => msg.classList.remove('show'), 1800);
+  }
+
+  function capturar() {
+    html2canvas(v('tarjeta'), { scale: 3, useCORS: true, backgroundColor: '#ffffff' }).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'nanobyte_pago.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  }
+
+  cargarDatos();
+  actualizar(false);
+
+  document.querySelectorAll('.editor input').forEach(inp => {
+    inp.addEventListener('input', () => actualizar(true));
+  });
+</script>
+</body>
+</html>
