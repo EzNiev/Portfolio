@@ -9,18 +9,23 @@ const anchoPantalla = window.innerWidth;
 let numeroDeParticulas;
 let distanciaMaxima;
 let radioMouse;
+let radioBase;
+let opacidadMaxima;
 
 if (anchoPantalla > 800) {
-  // Desktop: efecto completo
-  numeroDeParticulas = 300;
-  distanciaMaxima = 100;
-  radioMouse = 320;
+    // Desktop: efecto completo
+    numeroDeParticulas = 300;
+    distanciaMaxima = 100;
+    radioMouse = 320;
+    radioBase = 1.3;
+    opacidadMaxima = 0.95;
 } else {
-  // Celular/tablet chica: muchas menos partículas y sin líneas
-  // (tampoco hay mouse real, así que el hover no aplica)
-  numeroDeParticulas = 60;
-  distanciaMaxima = 0;
-  radioMouse = 0;
+    // Celular/tablet chica: muchas menos partículas y sin líneas
+    numeroDeParticulas = 60;
+    distanciaMaxima = 0;
+    radioMouse = 0;
+    radioBase = 0.7;
+    opacidadMaxima = 0.3;
 }
 
 const particulas = [];
@@ -31,7 +36,7 @@ for (let i = 0; i < numeroDeParticulas; i++) {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.8,
         vy: (Math.random() - 0.5) * 0.8,
-        radio: 1.3,
+        radio: radioBase,
     });
 }
 
@@ -70,9 +75,9 @@ function dibujar() {
             const dy = particula.y - mouse.y;
             const distancia = Math.sqrt(dx * dx + dy * dy);
 
-            opacidad = 1 - distancia / 200;
-            if (opacidad < 0.1) opacidad = 0.2;
-            if (opacidad > 0.6) opacidad = 1;
+            opacidad = 1 - distancia / 450;
+            if (opacidad < 0.04) opacidad = 0.04;
+            if (opacidad > opacidadMaxima) opacidad = opacidadMaxima;
         }
 
         ctx.fillStyle = `rgba(93, 220, 143, ${opacidad})`;
@@ -99,7 +104,7 @@ function dibujarLineas() {
                 if (distMouseA < radioMouse && distMouseB < radioMouse) {
                     const distanciaPromedio = (distMouseA + distMouseB) / 2;
                     let opacidadLinea = 1 - distanciaPromedio / radioMouse;
-                    opacidadLinea *= 0.4; // tope general: nunca del todo opaca
+                    opacidadLinea *= 0.7;
 
                     ctx.strokeStyle = `rgba(93, 220, 143, ${opacidadLinea})`;
                     ctx.lineWidth = 0.4;
