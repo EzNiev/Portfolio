@@ -7,8 +7,10 @@
   --text: #e8ede9;
   --text-muted: #93a39a;
 
-  --accent: #5ddc8f;      /* verde placa, apagado */
-  --accent-warm: #c98a4e; /* cobre / soldadura */
+  --accent: #5ddc8f;
+  /* verde placa, apagado */
+  --accent-warm: #c98a4e;
+  /* cobre / soldadura */
 
   --font-display: "IBM Plex Mono", "Courier New", monospace;
   --font-body: "Inter", -apple-system, sans-serif;
@@ -17,7 +19,15 @@
 }
 
 /* ===== Reset básico ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg);
@@ -43,6 +53,16 @@ a {
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
   z-index: 10;
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.navbar--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .navbar__logo {
@@ -98,7 +118,16 @@ section {
   min-height: 90vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.hero__subtitle {
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
 }
 
 .hero__eyebrow {
@@ -114,19 +143,45 @@ section {
   margin-bottom: 1rem;
 }
 
-.hero__subtitle {
-  color: var(--text-muted);
-  max-width: 520px;
-  margin-bottom: 2rem;
-}
-
 .hero__cta {
+  position: relative;
   display: inline-block;
   width: fit-content;
   padding: 0.75rem 1.5rem;
   border: 1px solid var(--accent);
   color: var(--accent);
   font-family: var(--font-display);
+}
+
+.hero__cta::before,
+.hero__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero__cta:hover::before {
+  animation: anillo 1.2s ease-out infinite;
+}
+
+.hero__cta:hover::after {
+  animation: anillo 1.2s ease-out infinite;
+  animation-delay: 0.4s;
+}
+
+@keyframes anillo {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
 }
 
 .hero__cta:hover {
@@ -262,14 +317,68 @@ section {
 }
 
 @media (max-width: 700px) {
-  .navbar{
-    flex-direction: column;
-    gap: 1rem;
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
     padding: 1rem;
   }
 
-  .navbar__links{
+  .navbar__links {
+    justify-content: center;
     gap: 1rem;
     font-size: 0.85rem;
   }
+}
+
+/* ===== Animaciones de entrada del Hero ===== */
+@keyframes entradaIzquierda {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes entradaDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes entradaAbajo {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__eyebrow {
+  animation: entradaIzquierda 0.6s ease-out both;
+}
+
+.hero__title {
+  animation: entradaIzquierda 0.6s ease-out 0.15s both;
+}
+
+.hero__subtitle {
+  animation: entradaDerecha 0.6s ease-out 0.3s both;
+}
+
+.hero__cta {
+  animation: entradaAbajo 0.6s ease-out 0.5s both;
 }
