@@ -33,7 +33,7 @@
     {
         "title": "Herramientas web para negocios propios",
         "status": "NANOBYTE / Ceppi GNC & Mecánica",
-        "description": "Generador de tarjetas de pago con persistencia en localStorage y exportación a PNG (html2canvas), y generador de presupuestos con vista previa en vivo para un negocio de GNC y mecánica.",
+        "description": "Generador de tarjetas de pago con persistencia en localStorage y exportación a PNG (html2canvas), y generador de presupuestos con vista previa en vivo para emprendimientos (utilizado por multiples clientes). Una forma más prolija de pasar los datos bancarios o pasar un precio de forma ágil.",
         "tags": [
             "JavaScript",
             "localStorage",
