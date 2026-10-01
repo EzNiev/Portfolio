@@ -43,15 +43,22 @@ async function cargarProyectos() {
         ? `<img src="${proyecto.image}" alt="Captura de ${proyecto.title}" class="project-card__image" loading="lazy">`
         : "";
 
+      // Si hay imagen, armamos layout de dos columnas (imagen + contenido)
+      const claseTarjeta = proyecto.image
+        ? "project-card project-card--with-image"
+        : "project-card";
+
       document.getElementById("projects-list").innerHTML += `
-      <article class="project-card">
+      <article class="${claseTarjeta}">
         ${imagenHtml}
-        <h3 class="project-card__title">${proyecto.title}</h3>
-        <p class="project-card__description">${proyecto.description}</p>
-        <ul class="project-card__tags">
-          ${tagsList}
-        </ul>
-        ${botonRepo}
+        <div class="project-card__content">
+          <h3 class="project-card__title">${proyecto.title}</h3>
+          <p class="project-card__description">${proyecto.description}</p>
+          <ul class="project-card__tags">
+            ${tagsList}
+          </ul>
+          ${botonRepo}
+        </div>
       </article>
     `;
     });
