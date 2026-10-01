@@ -41,5 +41,31 @@
         ],
         "link": "data/demo_proyectos/nanobyte_pago.html",
         "image": "assets/proyectos/generadorpagos.png"
+    },
+    {
+        "title": "Condor Seguridad — Sitio institucional",
+        "status": "Cliente real — ex empleador",
+        "description": "Sitio web institucional en Angular para Condor, una empresa real de seguridad privada de Fiambalá, Catamarca, donde trabajé. Incluye landing de presentación, sección Nosotros (misión, visión y valores), Servicios (vigilancia física, monitoreo electrónico, consultoría en seguridad) y una sección de bolsa de trabajo con formularios de postulación a las búsquedas activas de la empresa.",
+        "tags": [
+            "Angular",
+            "TypeScript",
+            "HTML",
+            "CSS"
+        ],
+        "link": "https://condorseguridad.netlify.app/",
+        "image": "assets/proyectos/condor.png"
+    },
+    {
+        "title": "Maiden Eventos — Sitio institucional",
+        "status": "Cliente real — grupo Zagreb",
+        "description": "Sitio web institucional en Angular para Maiden, una empresa de organización de eventos corporativos (fiestas de fin de año, congresos, team building, capacitaciones vivenciales, incentivos) que forma parte del grupo Zagreb, el mismo grupo de empresas para el que desarrollé el sitio de Condor Seguridad. Incluye carrusel de presentación, sección de servicios, categorías de experiencias ofrecidas y contacto con redes sociales.",
+        "tags": [
+            "Angular",
+            "TypeScript",
+            "HTML",
+            "CSS"
+        ],
+        "link": "https://maidenpro.netlify.app/",
+        "image": "assets/proyectos/maiden.png"
     }
 ]
