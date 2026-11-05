@@ -43,6 +43,20 @@
         "image": "assets/proyectos/generadorpagos.png"
     },
     {
+        "title": "NANOBYTE — Sitio web y presencia online",
+        "status": "Mi emprendimiento — en producción",
+        "description": "Sitio institucional de NANOBYTE, mi emprendimiento de servicio técnico, páginas web y automatizaciones para Jesús María y Colonia Caroya. Diseño propio con identidad de marca, efecto de partículas interactivo (también en celular), botón directo a WhatsApp y SEO local. Además armé el sistema de publicaciones en Instagram y Facebook mediante la API de Meta.",
+        "tags": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Netlify",
+            "Meta Graph API"
+        ],
+        "link": "https://nanobytejm.netlify.app/",
+        "image": "assets/proyectos/nanobyte.png"
+    },
+    {
         "title": "Condor Seguridad — Sitio institucional",
         "status": "Cliente real — ex empleador",
         "description": "Sitio web institucional en Angular para Condor, una empresa real de seguridad privada de Fiambalá, Catamarca, donde trabajé. Incluye landing de presentación, sección Nosotros (misión, visión y valores), Servicios (vigilancia física, monitoreo electrónico, consultoría en seguridad) y una sección de bolsa de trabajo con formularios de postulación a las búsquedas activas de la empresa.",
