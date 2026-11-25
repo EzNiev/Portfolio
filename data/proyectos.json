@@ -31,6 +31,18 @@
         "image": "assets/proyectos/portal_pedidos_silstech.png"
     },
     {
+        "title": "Sistema Integral de Producción (Google Apps Script)",
+        "status": "En desarrollo — uso interno en Silstech",
+        "description": "Web app (HTML/CSS/JS + backend en Apps Script) pensada como primera ventana del área de producción, en PC y celular. Centraliza el seguimiento de kits de rastreo vehicular (seriales, testeos, despachos y devoluciones) y da acceso directo a archivos y a otros sistemas del área, sin tener que buscar planillas en el Drive. Trabaja en modo lectura sobre las planillas existentes para no alterar sus datos. Diseño propio con paneles, menú lateral por grupos y vista adaptada a móvil.",
+        "tags": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Google Apps Script",
+            "Google Sheets"
+        ]
+    },
+    {
         "title": "Herramientas web para negocios propios",
         "status": "NANOBYTE / Ceppi GNC & Mecánica",
         "description": "Generador de tarjetas de pago con persistencia en localStorage y exportación a PNG (html2canvas), y generador de presupuestos con vista previa en vivo para emprendimientos (utilizado por multiples clientes). Una forma más prolija de pasar los datos bancarios o pasar un precio de forma ágil.",
